@@ -1,37 +1,35 @@
 import React from 'react'
 import { HiArrowRight } from "react-icons/hi";
 
-const Card = ({item:{title,des,icon}}) => {
+const Card = ({ item: { title, des, icon } }) => {
   return (
-    <div className="w-full px-12 h-80 py-10 rounded-lg shadow-shadowOne flex items-center bg-gradient-to-r from-bodyColor to-[#202327] group hover:bg-gradient-to-b hover:from-black hover:to-[#1e2024] transition-colors duration-100 group">
-      <div className="h-72 overflow-y-hidden">
-        <div className="flex h-full flex-col gap-10 translate-y-16 group-hover:translate-y-0 transition-transform duration-500">
-          <div className="w-10 h-8 flex flex-col justify-between">
-        
+    <div className="w-full px-6 sm:px-8 py-6 sm:py-7 rounded-2xl border border-zinc-800 bg-zinc-900/50 flex flex-col justify-between hover:bg-zinc-800/80 hover:border-designColor transition-colors duration-300 group min-h-[220px]">
+      <div className="flex flex-col gap-3.5">
+        {/* Same row: Icon and Title */}
+        <div className="flex items-center gap-3.5">
+          <div className="w-11 h-11 rounded-xl bg-blue-600/10 border border-blue-500/20 flex items-center justify-center text-2xl text-designColor shrink-0">
             {icon ? (
-              <span className="text-5xl text-designColor">{icon}</span>
+              icon
             ) : (
-              <>
-                <span className="w-full h-[2px] rounded-lg bg-designColor inline-flex"></span>
-                <span className="w-full h-[2px] rounded-lg bg-designColor inline-flex"></span>
-                <span className="w-full h-[2px] rounded-lg bg-designColor inline-flex"></span>
-                <span className="w-full h-[2px] rounded-lg bg-designColor inline-flex"></span>
-              </>
+              <span className="w-4 h-4 rounded bg-designColor inline-flex" />
             )}
           </div>
-          <div className="flex flex-col gap-6">
-            <h2 className="text-xl md:text-2xl font-titleFont font-bold text-gray-300">
-              {title}
-            </h2>
-            <p className="base">{des}</p>
-            <span className="text-2xl text-designColor">
-              <HiArrowRight />
-            </span>
-          </div>
+          <h2 className="text-lg sm:text-xl font-titleFont font-bold text-white group-hover:text-designColor transition-colors">
+            {title}
+          </h2>
         </div>
+        
+        <p className="text-xs sm:text-sm text-slate-400 group-hover:text-slate-300 transition-colors leading-relaxed">
+          {des}
+        </p>
+      </div>
+
+      <div className="pt-4 flex items-center gap-1.5 text-designColor text-xs sm:text-sm font-semibold">
+        <span>Explore Expertise</span>
+        <HiArrowRight className="group-hover:translate-x-1 transition-transform text-xs sm:text-sm" />
       </div>
     </div>
   );
-}
+};
 
-export default Card
+export default Card;

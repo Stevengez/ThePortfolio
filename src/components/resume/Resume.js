@@ -2,86 +2,84 @@ import React, {  useState } from 'react'
 import Title from '../layouts/Title';
 import Education from './Education';
 import Skills from './Skills';
-import Achievement from './Achievement';
-import Experience from "./Experience"
+import Experience from "./Experience";
+import { FaBriefcase, FaCode, FaGraduationCap } from "react-icons/fa";
 
 const Resume = () => {
-   const [educationData, setEducationData] = useState(true);
-   const [skillData, setSkillData] = useState(false);
-   const [experienceData, setExperienceData] = useState(false);
-   const [achievementData, setAchievementData] = useState(false);
+   const [activeTab, setActiveTab] = useState('experience');
+
   return (
     <section id="resume" className="w-full py-20 border-b-[1px] border-b-black">
       <div className="flex justify-center items-center text-center">
-        <Title title="18+ YEARS OF ACADEMIC AND WORK EXPERIENCE" des="My Resume" />
+        <Title title="Proven Track Record & Technical Pedigree" des="Career & Credentials" />
       </div>
-      <div>
-        <ul className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
+      <div className="mb-10">
+        <ul className="w-full grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
           <li
-            onClick={() =>
-              setEducationData(true) &
-              setSkillData(false) &
-              setExperienceData(false) &
-              setAchievementData(false)
-            }
+            onClick={() => setActiveTab('experience')}
             className={`${
-              educationData
-                ? "border-designColor rounded-lg"
-                : "border-transparent"
-            } resumeLi`}
+              activeTab === 'experience'
+                ? "border-blue-500 bg-blue-500/10 text-white shadow-lg shadow-blue-500/15"
+                : "border-slate-800 bg-slate-900/40 text-slate-400"
+            } py-4 px-4 text-center cursor-pointer rounded-2xl border font-semibold transition-all duration-200 hover:border-slate-600 hover:text-white flex flex-col items-center justify-center gap-2 group`}
           >
-            Education
+            {/* Row 1: Button / Icon */}
+            <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg transition-colors ${
+              activeTab === 'experience'
+                ? "bg-blue-600 text-white shadow-md shadow-blue-500/30"
+                : "bg-slate-800/80 text-blue-400 group-hover:bg-slate-800"
+            }`}>
+              <FaBriefcase />
+            </div>
+            {/* Row 2: Title */}
+            <span className="text-xs sm:text-sm tracking-wide">Job Experience</span>
           </li>
+
           <li
-            onClick={() =>
-              setEducationData(false) &
-              setSkillData(true) &
-              setExperienceData(false) &
-              setAchievementData(false)
-            }
+            onClick={() => setActiveTab('skills')}
             className={`${
-              skillData ? "border-designColor rounded-lg" : "border-transparent"
-            } resumeLi`}
+              activeTab === 'skills'
+                ? "border-blue-500 bg-blue-500/10 text-white shadow-lg shadow-blue-500/15"
+                : "border-slate-800 bg-slate-900/40 text-slate-400"
+            } py-4 px-4 text-center cursor-pointer rounded-2xl border font-semibold transition-all duration-200 hover:border-slate-600 hover:text-white flex flex-col items-center justify-center gap-2 group`}
           >
-            Professional Skills
+            {/* Row 1: Button / Icon */}
+            <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg transition-colors ${
+              activeTab === 'skills'
+                ? "bg-cyan-600 text-white shadow-md shadow-cyan-500/30"
+                : "bg-slate-800/80 text-cyan-400 group-hover:bg-slate-800"
+            }`}>
+              <FaCode />
+            </div>
+            {/* Row 2: Title */}
+            <span className="text-xs sm:text-sm tracking-wide">Tech Stack & Skills</span>
           </li>
+
           <li
-            onClick={() =>
-              setEducationData(false) &
-              setSkillData(false) &
-              setExperienceData(true) &
-              setAchievementData(false)
-            }
+            onClick={() => setActiveTab('education')}
             className={`${
-              experienceData
-                ? "border-designColor rounded-lg"
-                : "border-transparent"
-            } resumeLi`}
+              activeTab === 'education'
+                ? "border-blue-500 bg-blue-500/10 text-white shadow-lg shadow-blue-500/15"
+                : "border-slate-800 bg-slate-900/40 text-slate-400"
+            } py-4 px-4 text-center cursor-pointer rounded-2xl border font-semibold transition-all duration-200 hover:border-slate-600 hover:text-white flex flex-col items-center justify-center gap-2 group`}
           >
-            Experience
-          </li>
-          <li
-            onClick={() =>
-              setEducationData(false) &
-              setSkillData(false) &
-              setExperienceData(false) &
-              setAchievementData(true)
-            }
-            className={`${
-              achievementData
-                ? "border-designColor rounded-lg"
-                : "border-transparent"
-            } resumeLi`}
-          >
-            Achievements
+            {/* Row 1: Button / Icon */}
+            <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg transition-colors ${
+              activeTab === 'education'
+                ? "bg-purple-600 text-white shadow-md shadow-purple-500/30"
+                : "bg-slate-800/80 text-purple-400 group-hover:bg-slate-800"
+            }`}>
+              <FaGraduationCap />
+            </div>
+            {/* Row 2: Title */}
+            <span className="text-xs sm:text-sm tracking-wide">Degrees & Certifications</span>
           </li>
         </ul>
       </div>
-      {educationData && <Education />}
-      {skillData && <Skills />}
-      {achievementData && <Achievement />}
-      {experienceData && <Experience />}
- 
+
+      {activeTab === 'experience' && <Experience />}
+      {activeTab === 'skills' && <Skills />}
+      {activeTab === 'education' && <Education />}
     </section>
   );
 }

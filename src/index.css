@@ -1,24 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer components{
     .bannerIcon{
-        @apply w-16 h-16 bg-black bg-opacity-25 text-gray-200 text-xl inline-flex items-center justify-center rounded-md shadow-shadowOne hover:bg-opacity-40 hover:-translate-y-1 transition-all hover:text-designColor cursor-pointer duration-300;
+        @apply w-16 h-16 bg-zinc-800/50 text-gray-200 text-xl inline-flex items-center justify-center rounded-xl border border-zinc-700 hover:bg-zinc-800 hover:-translate-y-1 transition-all hover:text-designColor cursor-pointer duration-300;
     }
     .resumeLi {
-    @apply w-full h-20 bg-black bg-opacity-25 text-xl text-gray-300 flex justify-center cursor-pointer hover:bg-opacity-40 duration-300 items-center border-[1px] rounded-none;
-         }
-.bgOpacity {
-@apply bg-black bg-opacity-40;
-                  }
-    .contactInput{
-        @apply w-full h-12 rounded-lg border-b-[1px] border-b-gray-600 bg-[#191b1e] text-lightText px-4 active:outline-none focus-visible:outline-designColor outline-none focus-visible:border-b-transparent duration-300
+        @apply w-full h-20 bg-zinc-800/30 text-xl text-gray-300 flex justify-center cursor-pointer hover:bg-zinc-800/70 duration-300 items-center border border-zinc-700 rounded-lg;
     }
-.contactTextArea{
-    @apply w-full rounded-lg border-b-[1px] border-b-gray-600 bg-[#191b1e] text-lightText px-4 py-2 active:outline-none focus-visible:outline-designColor outline-none focus-visible:border-b-transparent duration-300 resize-none
-}
+    .bgOpacity {
+        @apply bg-black bg-opacity-40;
+    }
+    .contactInput{
+        @apply w-full h-12 rounded-lg border border-zinc-700 bg-zinc-900/50 text-lightText px-4 active:outline-none focus-visible:outline-designColor outline-none duration-300;
+    }
+    .contactTextArea{
+        @apply w-full rounded-lg border border-zinc-700 bg-zinc-900/50 text-lightText px-4 py-2 active:outline-none focus-visible:outline-designColor outline-none duration-300 resize-none;
+    }
 }
 
 .active {
@@ -26,4 +26,25 @@
 }
 .scrollbar-hide::-webkit-scrollbar{
     display: none;
+}
+
+@keyframes metallic-lightning {
+  0% {
+    transform: translateX(-150%) skewX(-25deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.85;
+  }
+  60% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translateX(250%) skewX(-25deg);
+    opacity: 0;
+  }
+}
+
+.animate-metal-shimmer {
+  animation: metallic-lightning 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }

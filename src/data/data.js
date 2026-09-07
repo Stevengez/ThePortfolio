@@ -1,44 +1,45 @@
 import { AiFillAppstore } from "react-icons/ai";
-import {  FaBrain} from "react-icons/fa";
-import { SiProgress} from "react-icons/si";
+import { FaMobileAlt, FaDatabase } from "react-icons/fa";
+import { SiDocker } from "react-icons/si";
 import { CgWebsite } from "react-icons/cg";
-import { MdAnalytics } from "react-icons/md";
+import { MdSmartToy } from "react-icons/md";
 
 // Features Data
 export const featuresData = [
   {
     id: 1,
-    title: "Project Management",
-    des: "Want to gain real-life experience of managing a complete software project cycle.",
+    icon: <CgWebsite />,
+    title: "Fullstack Development",
+    des: "Building robust web applications from frontend to backend using React, Next.js, Node.js, and modern architectural patterns.",
   },
   {
     id: 2,
-    icon: <AiFillAppstore />,
-    title: "App Development",
-    des: "Will learn this soon in near future !",
+    icon: <FaMobileAlt />,
+    title: "Mobile App Development",
+    des: "Creating engaging and native-feeling mobile applications for Android and iOS using modern cross-platform or native tools.",
   },
   {
     id: 3,
-    icon: <SiProgress />,
-    title: "SEO Optimisation",
-    des: "Will learn this soon in near future !",
+    icon: <MdSmartToy />,
+    title: "IoT & Alexa Skills",
+    des: "Developing voice-first experiences and IoT integrations, including Alexa skills for home automation and presence detection.",
   },
   {
     id: 4,
-    icon: <CgWebsite />,
-    title: "Web Development",
-    des: "Have completed a MERN stack development course from Udemy. Have developed various projects and hosted them too, check them on my github.",
+    icon: <SiDocker />,
+    title: "Systems Integration",
+    des: "Designing scalable event-driven architectures and utilizing Docker/Kubernetes for reliable deployment environments.",
   },
   {
     id: 5,
-    icon: <MdAnalytics />,
-    title: "Data Analyst",
-    des: "Learned data extraction,cleaning, pattern identification & web scrapping skills during my internship. ALso, trained the ML models.",
+    icon: <FaDatabase />,
+    title: "Database Management",
+    des: "Architecting and managing databases with PostgreSQL, ensuring data integrity and performance for complex applications.",
   },
   {
     id: 6,
-    icon: <FaBrain />,
-    title: "Machine Learning",
-    des: "Have completed a ML course from Acmegrade(Partner Mood Indigo IITB). Have developed some projects, check them on my github.",
+    icon: <AiFillAppstore />,
+    title: "Agile Management",
+    des: "Certified Scrum Master with experience leading teams, improving processes, and ensuring smooth project delivery.",
   },
 ];
